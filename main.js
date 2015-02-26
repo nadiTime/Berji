@@ -26,18 +26,18 @@ $('document').ready(function(){
 			console.log("health is "+this.health)
 		},
 		allData:function(){
-			this.allData();
 			console.log(JSON.stringify(this));
 		},
 	};
 
 
-	function takeCareOfBerji(berji){
+	function takeCareOfBerji(){
 		for (var k in berji) {
-  				checkIfOk(k,berji);
+  				checkIfOk(k);
 		}
+		berji.allData();
 	}
-	function checkIfOk(status,berji){
+	function checkIfOk(status){
 		
 		switch(status){
 			case "health": checkHealth(berji);
@@ -49,21 +49,22 @@ $('document').ready(function(){
 		}
 	}
 
-	function checkHappiness(berji){
+	function checkHappiness(){
 		if(berji.happiness<=10){
 			berji.eat(3);
+
 		}
 	}
-	function checkHealth(berji){
+	function checkHealth(){
 		if(berji.health<10){
 			berji.heal(10);
 		}
 	}
-	function checkHunger(berji){
+	function checkHunger(){
 		if(berji.hunger>50){
 			berji.eat(10);
 		}
 	}
-	
-	takeCareOfBerji(berji);
+
+	takeCareOfBerji();
 });
