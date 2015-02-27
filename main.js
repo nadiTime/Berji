@@ -4,7 +4,8 @@ $('document').ready(function(){
 		hunger:55,
 		happiness:50,
 		bark:function(){
-			console.log("woof woof");
+			console.log("woof");
+			$('#berjiout').val("woof woof");
 		},
 		eat:function(food){
 			this.allData();
@@ -70,8 +71,14 @@ $('document').ready(function(){
 		if(event.keyCode==13){
 			event.preventDefault();
 			var input = this.value;
+			console.log("key down write: "+input);
 			this.value=null;
 			berjiListener(input);
 		}
 	});
+	function berjiListener(input){
+		console.log("berji listener "+input);
+		console.log(input.has('bark'));
+		if(input.has('bark')) berji.bark();
+	}
 });
