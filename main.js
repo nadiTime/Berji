@@ -26,7 +26,7 @@ $('document').ready(function(){
 			console.log("health is "+this.health)
 		},
 		allData:function(){
-			console.log(JSON.stringify(this));
+			$('#berjiout').value=JSON.stringify(this);
 		},
 	};
 
@@ -65,6 +65,13 @@ $('document').ready(function(){
 			berji.eat(10);
 		}
 	}
-
-	takeCareOfBerji();
+	
+	$('#berjiinput').keydown(function(event){
+		if(event.keyCode==13){
+			event.preventDefault();
+			var input = this.value;
+			this.value=null;
+			berjiListener(input);
+		}
+	});
 });
